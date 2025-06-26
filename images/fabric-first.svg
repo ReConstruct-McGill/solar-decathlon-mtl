@@ -1,0 +1,15 @@
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 456.592 182.695">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+        stroke: #781320;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: 10px;
+      }
+    </style>
+  </defs>
+  <title>fabric-first</title>
+  <polygon class="cls-1" points="339.944 44.367 339.944 97.824 228.296 97.824 228.296 5 5 17.954 5 177.695 228.296 177.695 339.944 177.695 451.592 177.695 451.592 31.413 339.944 44.367"/>
+</svg>

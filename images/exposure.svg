@@ -1,0 +1,19 @@
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 437.038 235.902">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+        stroke: #fff;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: 20px;
+      }
+    </style>
+  </defs>
+  <title>exposure</title>
+  <path class="cls-1" d="M41.481,250S119.839,142.049,250,142.049" transform="translate(-31.481 -132.049)"/>
+  <path class="cls-1" d="M458.519,250S380.161,142.049,250,142.049" transform="translate(-31.481 -132.049)"/>
+  <path class="cls-1" d="M41.481,250S119.839,357.951,250,357.951" transform="translate(-31.481 -132.049)"/>
+  <path class="cls-1" d="M458.519,250S380.161,357.951,250,357.951" transform="translate(-31.481 -132.049)"/>
+  <circle class="cls-1" cx="218.519" cy="117.951" r="60.793"/>
+</svg>

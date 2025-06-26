@@ -1,0 +1,13 @@
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fff;
+      }
+    </style>
+  </defs>
+  <title>close-menu</title>
+  <rect class="cls-1" width="500" height="500"/>
+  <rect x="124.652" y="235.731" width="262.291" height="27.441" rx="13.721" ry="13.721" transform="translate(-101.468 253.939) rotate(-45)"/>
+  <rect x="124.652" y="233.108" width="262.291" height="27.441" rx="13.721" ry="13.721" transform="translate(249.455 -108.582) rotate(45)"/>
+</svg>
