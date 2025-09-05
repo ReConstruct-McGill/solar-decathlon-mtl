@@ -23,7 +23,7 @@
 document.documentElement.className = document.documentElement.className.replace(/\bnojs\b/g, 'js');
 
 // Check that all required assets are uploaded and up-to-date
-if(typeof Muse == "undefined") window.Muse = {}; window.Muse.assets = {"required":["museutils.js", "museconfig.js", "jquery.musepolyfill.bgsize.js", "jquery.watch.js", "webpro.js", "jquery.musemenu.js", "musewpdisclosure.js", "jquery.museresponsive.js", "require.js", "gallery.css"], "outOfDate":[]};
+if(typeof Muse == "undefined") window.Muse = {}; window.Muse.assets = {"required":["museutils.js", "museconfig.js", "jquery.musepolyfill.bgsize.js", "jquery.watch.js", "webpro.js", "jquery.musemenu.js", "musewpdisclosure.js", "jquery.museresponsive.js", "require.js"], "outOfDate":[]};
 </script>
   
   <link rel="shortcut icon" href="images/favicon.ico?crc=4087937269"/>
@@ -31,7 +31,7 @@ if(typeof Muse == "undefined") window.Muse = {}; window.Muse.assets = {"required
   <!-- CSS -->
   <link rel="stylesheet" type="text/css" href="css/site_global.css?crc=402710129"/>
   <link rel="stylesheet" type="text/css" href="css/master_english.css?crc=3837893321"/>
-  <link rel="stylesheet" type="text/css" href="css/gallery.css?crc=123456789" id="pagesheet"/>
+  <link rel="stylesheet" type="text/css" href="css/gallery.css?crc=10647808" id="pagesheet"/>
   <!-- IE-only CSS -->
   <!--[if lt IE 9]>
   <link rel="stylesheet" type="text/css" href="css/nomq_preview_master_english.css?crc=4256689708"/>
@@ -2381,6 +2381,9 @@ Muse.Utils.transformMarkupToFixBrowserProblems();/* body */
     const eventsBtn = document.getElementById('buttonu239567');
     const finalBtn = document.getElementById('buttonu239565');
     
+    // Only add event listeners if buttons exist
+    if (allPhotosBtn) {
+    
     allPhotosBtn.addEventListener('click', (e) => {
      e.preventDefault();
      setActiveButton(allPhotosBtn);
@@ -2388,48 +2391,60 @@ Muse.Utils.transformMarkupToFixBrowserProblems();/* body */
      renderGallery();
     });
     
-    montrealBtn.addEventListener('click', (e) => {
-     e.preventDefault();
-     setActiveButton(montrealBtn);
-     filteredImages = galleryData.filter(img => img.category === 'montreal');
-     renderGallery();
-    });
+    }
     
-    competitionBtn.addEventListener('click', (e) => {
-     e.preventDefault();
-     setActiveButton(competitionBtn);
-     filteredImages = galleryData.filter(img => img.category === 'competition');
-     renderGallery();
-    });
+    if (montrealBtn) {
+     montrealBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      setActiveButton(montrealBtn);
+      filteredImages = galleryData.filter(img => img.category === 'montreal');
+      renderGallery();
+     });
+    }
     
-    constructionBtn.addEventListener('click', (e) => {
-     e.preventDefault();
-     setActiveButton(constructionBtn);
-     filteredImages = galleryData.filter(img => img.category === 'china-construction');
-     renderGallery();
-    });
+    if (competitionBtn) {
+     competitionBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      setActiveButton(competitionBtn);
+      filteredImages = galleryData.filter(img => img.category === 'competition');
+      renderGallery();
+     });
+    }
     
-    eventsBtn.addEventListener('click', (e) => {
-     e.preventDefault();
-     setActiveButton(eventsBtn);
-     filteredImages = galleryData.filter(img => img.category === 'events');
-     renderGallery();
-    });
+    if (constructionBtn) {
+     constructionBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      setActiveButton(constructionBtn);
+      filteredImages = galleryData.filter(img => img.category === 'china-construction');
+      renderGallery();
+     });
+    }
     
-    finalBtn.addEventListener('click', (e) => {
-     e.preventDefault();
-     setActiveButton(finalBtn);
-     filteredImages = galleryData.filter(img => img.category === 'final');
-     renderGallery();
-    });
+    if (eventsBtn) {
+     eventsBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      setActiveButton(eventsBtn);
+      filteredImages = galleryData.filter(img => img.category === 'events');
+      renderGallery();
+     });
+    }
+    
+    if (finalBtn) {
+     finalBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      setActiveButton(finalBtn);
+      filteredImages = galleryData.filter(img => img.category === 'final');
+      renderGallery();
+     });
+    }
     
     function setActiveButton(activeBtn) {
-     // Remove ButtonSelected from all buttons
+     // Remove ButtonSelected from all buttons (only if they exist)
      [allPhotosBtn, montrealBtn, competitionBtn, constructionBtn, eventsBtn, finalBtn].forEach(btn => {
-      btn.classList.remove('ButtonSelected');
+      if (btn) btn.classList.remove('ButtonSelected');
      });
      // Add ButtonSelected to the active button
-     activeBtn.classList.add('ButtonSelected');
+     if (activeBtn) activeBtn.classList.add('ButtonSelected');
     }
     
     // Modal controls
@@ -2438,20 +2453,22 @@ Muse.Utils.transformMarkupToFixBrowserProblems();/* body */
     const prevBtn = document.getElementById('prevBtn');
     const nextBtn = document.getElementById('nextBtn');
     
-    closeBtn.addEventListener('click', closeModal);
-    prevBtn.addEventListener('click', () => navigateImage(-1));
-    nextBtn.addEventListener('click', () => navigateImage(1));
+    if (closeBtn) closeBtn.addEventListener('click', closeModal);
+    if (prevBtn) prevBtn.addEventListener('click', () => navigateImage(-1));
+    if (nextBtn) nextBtn.addEventListener('click', () => navigateImage(1));
     
     // Close modal when clicking outside
-    modal.addEventListener('click', (e) => {
-     if (e.target === modal) {
-      closeModal();
-     }
-    });
+    if (modal) {
+     modal.addEventListener('click', (e) => {
+      if (e.target === modal) {
+       closeModal();
+      }
+     });
+    }
     
     // Keyboard navigation
     document.addEventListener('keydown', (e) => {
-     if (modal.style.display === 'block') {
+     if (modal && modal.style.display === 'block') {
       if (e.key === 'Escape') closeModal();
       if (e.key === 'ArrowLeft') navigateImage(-1);
       if (e.key === 'ArrowRight') navigateImage(1);
